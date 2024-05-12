@@ -1,38 +1,258 @@
-.App {
-  text-align: center;
+body{
+  width: 100%;
+}
+li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+ul{
+  padding: 0px;
+}
+h1{
+  font-size: 50px;
+  font-weight: bold;
+}
+h2{
+  font-size: 40px;
+  font-weight: bold;
+}
+h3{
+  font-size: 30px;
+  font-weight: bold;
+}
+h4{
+  font-size: 20px;
+  font-weight: bold;
+}
+p{
+  font-size: 18px;
+}
+button{
+  padding: 1em 2em;
+  background-color: #F4CE14;
+  border: none;
+  border-radius: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+button.returnButton{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  padding: 5px;
+}
+button.returnButton img{
+  width: 100%;
+}
+button:hover{
+  scale: 105%;
+  filter: brightness(80%);
+  transition: 0.1s;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+nav{
+  padding: 1em 10%;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
   align-items: center;
+}
+
+
+nav li{
+  padding: 1em;
+  display: inline-block;
+}
+nav a{
+  color: #495E57;
+}
+nav a:hover{
+  text-decoration: underline solid 2px ;
+  color: #293430;
+}
+.bar{
+  width: 30px;
+  height: 3px;
+  background-color: #495E57;
+  margin: 5px;
+}
+
+.hamburgermenu{
+  display: none;
+}
+
+.vision{
+  display: block;
+}
+
+/* ----------------------------------HEADER SECTION--------------------------- */
+
+header{
+  padding: 30px 10%;
+  background-color: rgb(73, 94, 87);
+  color: white;
+  padding-bottom: 50px;
+}
+
+header h2{
+  color: #F4CE14;
+}
+header p{
+  margin: 30px 0px;
+}
+header article{
+  width: 40vw;
+}
+header section{
+  position: relative;
+}
+header article+div{
+  position: absolute;
+  overflow: hidden;
+  height: 70vh;
+  background-size: contain;
+  right: 0px;
+  top: 0px;
+  border-radius: 50px 0px 50px;
+  border: 5px solid white;
+}
+header article+div>img{
+  height: 100%;
+}
+
+/* ----------------------------------------------CONFIRMATION-------------------------------------------------- */
+
+div.confirm{
+  width: 100%;
+  background-color: #495E57;
+  color: white;
+  text-align: center;
+  padding: 1em;
+}
+h3.confirm{
+  display: inline;
+}
+h1.confirm{
+  display:inline;
+  color:#F4CE14;
+  margin: 0.5em;
+}
+
+/* ----------------------------------BOOKINGPAGE----------------------------------------- */
+
+.BookingPage{
+  width: 100%;
+  background-color: #495E57;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.BookingPage fieldset{
+  width: max-content;
+  margin: 30px;
+  border: 2px solid white;
+  position: relative;
+}
+form label{
+  font-size: 20px;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+form input,form select{
+  font-size: 16px;
+  padding: 5px;
+  width: 600px;
+  margin-top: 10px;
+}
+form select{
+  width: max-content;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+form button{
+  width: max-content;
+}
+.BookingPage legend{
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+}
+.formReturn{
+  position: absolute;
+  top: 0px;
+  right: 11px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+
+@media (max-width: 980px) {
+  .hamburgermenu{
+    display: block;
   }
-  to {
-    transform: rotate(360deg);
+  nav li{
+    display: block;
+    text-align: center;
+  }
+  nav ul{
+    position: absolute;
+    left: 0px;
+    top: 60px;
+    background-color: #313f3b;
+    border-bottom: 1px solid white;
+    width: 100%;
+    z-index: 1000;
+  }
+  nav ul a{
+    color: white;
+  }
+  .vision{
+    display: none;
+  }
+  /* ------------------------------------ HEADER SECTION ------------------------------------ */
+  header section{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  header article{
+    width: 100%;
+  }
+  header article+div{
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 20px;
+  }
+  header article+div>img{
+    translate: 0%;
+    width: 100%;
+    height: max-content;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -55%;
+    filter: brightness(50%);
+  }
+  /* ---------------------------------CONFIRMATION PAGE------------------------------------- */
+  div.confirm{
+    padding: 20px 0px;
+  }
+  div.confirm h1{
+    font-size: 30px;
+  }
+  div.confirm h3{
+    font-size: 20px;
+  }
+
+  /* ------------------------------------BOOKING PAGE-------------------------------------------- */
+
+  form input{
+    width: 200px;
   }
 }
