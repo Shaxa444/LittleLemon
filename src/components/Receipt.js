@@ -1,10 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import deleteIcon from '../images/delete-icon.png'
 import editIcon from '../images/edit-icon.png'
 import swipe from '../images/swipe.png'
 
 function Receipt({orders}) {
     const [vision,setVision] = useState(false)
+    const [totalCost,setTotalCost] = useState(0)
+    useEffect(
+        ()=>{
+            for (let i = 0; i < orders.length; i++) {
+                const element = orders[i];
+                setTotalCost(totalCost+element.price-1+0.01)
+            }
+        },[orders]
+    )
   return (
     <div className={`receipt ${vision&& 'moveLeft'}`}>
         <div className="slideButton" onClick={()=> setVision(!vision)}>
@@ -32,6 +41,10 @@ function Receipt({orders}) {
             </div>
             )}
         </div>
+            <div>
+                <h3>Total cost: </h3>
+                <h3>${totalCost}</h3>
+            </div>
     </div>
   )
 }

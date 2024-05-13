@@ -359,6 +359,9 @@ form.meal .line{
   font-size: 14px;
   margin: 0px;
 }
+.receipt h3{
+  padding: 0% 10%;
+}
 .editOrders{
   padding: 0% 10%;
   display: flex;
