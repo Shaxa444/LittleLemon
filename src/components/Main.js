@@ -5,10 +5,12 @@ import Header from './Header'
 import Confirmation from './Confirmation'
 import { useNavigate } from 'react-router-dom'
 import MealsPage from './MealsPage'
+import Receipt from './Receipt'
 
 function Main() {
   const [reservations, setReservations] = useState([])
   const [availableTimes,setAvailableTimes] = useState([])
+  const [orders,setOrders] = useState([])
   const navigate = useNavigate()
   
   useEffect(
@@ -32,11 +34,18 @@ function Main() {
     navigate('/confirm')
   }
 
+  useEffect(
+    ()=>{
+      console.log(orders)
+    },[orders]
+  )
+
 
   return (
     <main>
+      <Receipt orders={orders}/>
       <Routes>
-        <Route path='/' element={<><Header /><MealsPage /></>}/>
+        <Route path='/' element={<><Header /><MealsPage orderHandler={(a)=> a!== null && setOrders([...orders,a])}/></>}/>
         <Route path='/booking' element={<Booking availableTimes={availableTimes} getBookData={getBookData} />}/>
         <Route path='/confirm' element={<Confirmation />} />
       </Routes>

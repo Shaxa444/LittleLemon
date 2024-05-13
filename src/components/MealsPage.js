@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import MealList from './MealList'
 import ratingIcon from '../images/ratingIcon.png'
 import unratingIcon from '../images/rating.png'
+import Swal from 'sweetalert2'
 
-function MealsPage() {
+function MealsPage({orderHandler}) {
     const[visibility,setVisibility] = useState(true)
     const[showMore,setShowMore] = useState(6)
     const[sortType,setSortType] = useState("Alp-AZ")
+    const[order,setOrder] = useState(null)
 
     function sortHandler(){
         if (sortType === "Alp-AZ"){
@@ -23,6 +25,33 @@ function MealsPage() {
             MealList.sort((a,b)=> b.rate-a.rate)
         }
     }
+
+    function handleNotification(){
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success"
+              });
+              orderHandler(order)
+            }
+          });
+    }
+
+    useEffect(
+        ()=>{
+            console.log(order)
+        },[order]
+    )
 
     return (
         <div className='mealsPage'>
@@ -49,7 +78,8 @@ function MealsPage() {
                 for (let i = 0; i < 5-a.rate; i++) {
                     unrateIcon.push(<img src={unratingIcon} alt="1" />)
                 }
-                return index<showMore && <div className='meal' key={a.id}>
+                return index<showMore && <form className='meal' key={a.id} onSubmit={a=> {a.preventDefault()
+                handleNotification()}}>
                     {/* <img src={a.img} alt={a.name}/> */}
                     <div>
                         <div>
@@ -67,9 +97,9 @@ function MealsPage() {
                                 </div>
                             </div>
                         </div>
-                        <button>Order a Meal</button>
+                        <button onClick={()=>{setOrder({name:a.name,price:a.price})}}>Order a Meal</button>
                     </div>
-                </div>
+                </form>
             })}
         </div>
         {visibility && <button onClick={()=> {setShowMore(showMore+9)
