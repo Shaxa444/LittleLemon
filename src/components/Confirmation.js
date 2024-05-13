@@ -6,7 +6,7 @@ function Confirmation() {
     <div className='confirm'>
         <h3 className='confirm'>Booking has been successfully </h3>
         <h1 className='confirm'>CONFIRMED!</h1>
-        <Link to={'/'}><button style={{display:"block",margin:"20px auto"}}>Go to Homepage</button></Link>
+        <Link to={'/'}><button style={{display:"block",margin:"20px auto"}}>Go to a Homepage</button></Link>
     </div>
   )
 }

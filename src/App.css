@@ -189,6 +189,93 @@ form button{
   right: 11px;
 }
 
+                                                    /* ---------------------MEALS PAGE ------------------------- */
+
+.mealsPage{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.mealsPage>h2{
+  margin: 80px 10%;
+}
+.mealsPage .meals{
+  display: grid;
+  padding: 0px 10%;
+  grid-template-columns: repeat(3,1fr);
+  gap: 50px;
+}
+div.meal{
+  background-color: #495E57;
+  border-radius: 40px;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 70px;
+}
+div.meal>div{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+.meal .nameprice{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+div.meal>img{
+  width: 100%;
+  border-radius: 40px 40px 0px 0px;
+}
+div.meal h4{
+  width: max-content;
+  margin: 0px;
+  padding: 0px;
+  font-size: 14px;
+  color: white;
+}
+div.meal p{
+  font-size: 12px;
+  color: white;
+}
+div.meal .line{
+  flex: 1;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.314);
+  align-self: center;
+  translate: 0px 10px;
+}
+.rating img{
+  width: 15px;
+  height: 15px;
+}
+.rating{
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+.meal button{
+  font-size: 15px;
+  margin-top: 10px;
+  position: absolute;
+  bottom: 20px;
+  width: 80%;
+  margin: 0px 10%;
+  left: 0px;
+}
+.mealsPage>button{
+  width: max-content;
+  margin: 50px auto;
+}
+.mealsPage>div:nth-child(2){
+  margin: 10px 10%;
+  gap: 5px;
+}
+.mealsPage>div:nth-child(2)>select{
+  margin-left: 10px;
+}
 
 
 @media (max-width: 980px) {
@@ -255,4 +342,26 @@ form button{
   form input{
     width: 200px;
   }
+
+  /* ---------------------------------------MEALS LIST ------------------------------------------------------- */
+
+  .mealsPage div.meals{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  div.meals div.meal{
+    padding-bottom: 70px;
+  }
+  .mealsPage div.meals h4{
+    font-size: 14px;
+  }
+  .mealsPage div.meals p{
+    font-size: 12px;
+    color: white;
+  }
+  .meal button{
+    margin-bottom: 0px;
+  }
+
 }

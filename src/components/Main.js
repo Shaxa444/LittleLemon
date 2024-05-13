@@ -4,12 +4,13 @@ import { Route,Routes } from 'react-router-dom'
 import Header from './Header'
 import Confirmation from './Confirmation'
 import { useNavigate } from 'react-router-dom'
+import MealsPage from './MealsPage'
 
 function Main() {
   const [reservations, setReservations] = useState([])
   const [availableTimes,setAvailableTimes] = useState([])
   const navigate = useNavigate()
-
+  
   useEffect(
     ()=>{
       var Times = []
@@ -35,8 +36,8 @@ function Main() {
   return (
     <main>
       <Routes>
-        <Route path='/' element={<Header />}/>
-        <Route path='/booking' element={<Booking availableTimes={availableTimes} getBookData={getBookData}/>}/>
+        <Route path='/' element={<><Header /><MealsPage /></>}/>
+        <Route path='/booking' element={<Booking availableTimes={availableTimes} getBookData={getBookData} />}/>
         <Route path='/confirm' element={<Confirmation />} />
       </Routes>
     </main>
