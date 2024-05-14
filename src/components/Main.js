@@ -31,13 +31,16 @@ function Main() {
     setAvailableTimes(availableTimes.filter(el => el!==a.time))
     navigate('/confirm')
   }
+  function orderHandler(a){
+    orders.map(order=> order.name).includes(a.name)? (setOrders(orders.map(order=> order.name===a.name ? {...order,amount:order.amount+1}:{...order}))) : setOrders([...orders,a])
+  }
 
 
   return (
     <main>
-      <Receipt orders={orders}/>
+      <Receipt orders={orders} setOrders={(a)=>setOrders(a)}/>
       <Routes>
-        <Route path='/' element={<><Header /><MealsPage orderHandler={(a)=> a!== null && setOrders([...orders,a])}/></>}/>
+        <Route path='/' element={<><Header /><MealsPage orderHandler={(a)=> a!== null && orderHandler(a)}/></>}/>
         <Route path='/booking' element={<Booking availableTimes={availableTimes} getBookData={getBookData} />}/>
         <Route path='/confirm' element={<Confirmation />} />
       </Routes>

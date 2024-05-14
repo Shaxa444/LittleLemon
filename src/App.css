@@ -372,14 +372,22 @@ form.meal .line{
   font-size: 14px;
   margin: 0px;
 }
+.editOrders span{
+  font-size: 14px;
+  margin: 0px;
+}
 .receipt h3{
   padding: 0% 10%;
 }
 .editOrders{
   padding: 0% 10%;
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
   margin-top: 10px;
+  align-items: center;
+}
+.editOrders>div{
+  display: flex;
   gap: 10px;
 }
 .receipt>div:nth-child(3){
@@ -387,19 +395,21 @@ form.meal .line{
   flex-direction: column;
   gap: 15px;
 }
-.editOrders>button{
-  padding: 5px;
+.editOrders button{
+  padding: 0px 5px;
   border-radius: 50px;
 }
-.receipt .editIcon, .receipt .deleteIcon{
-  width: 20px;
-  height: 20px;
-  translate: 1px 2px;
+.editOrders h3{
+  margin: 0px 5px;
+  padding: 0px;
+  font-size: 17px;
+  display: inline-block;
+  color: #F4CE14;
 }
-.receipt .deleteIcon{
-  width: 16px;
-  height: 16px;
+.receipt .addIcon, .receipt .deleteIcon{
+  width: 15px;
   padding: 2px;
+  translate: 0px 2px;
 }
 .swipeImg{
   width: 50px;
