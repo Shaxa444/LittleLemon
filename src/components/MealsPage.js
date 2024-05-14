@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import MealList from './MealList'
 import ratingIcon from '../images/ratingIcon.png'
 import unratingIcon from '../images/rating.png'
@@ -47,12 +47,6 @@ function MealsPage({orderHandler}) {
           });
     }
 
-    useEffect(
-        ()=>{
-            console.log(order)
-        },[order]
-    )
-
     return (
         <div className='mealsPage'>
         <h2>Our special Meals</h2>
@@ -80,7 +74,7 @@ function MealsPage({orderHandler}) {
                 }
                 return index<showMore && <form className='meal' key={a.id} onSubmit={a=> {a.preventDefault()
                 handleNotification()}}>
-                    {/* <img src={a.img} alt={a.name}/> */}
+                    <img src={a.img} alt={a.name}/>
                     <div>
                         <div>
                             <div className='nameprice'>
@@ -97,7 +91,7 @@ function MealsPage({orderHandler}) {
                                 </div>
                             </div>
                         </div>
-                        <button onClick={()=>{setOrder({name:a.name,price:a.price})}}>Order a Meal</button>
+                        <button onClick={()=>{setOrder({name:a.name,price:a.price,amount:1})}}>Order a Meal</button>
                     </div>
                 </form>
             })}

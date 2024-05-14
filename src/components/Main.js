@@ -28,17 +28,9 @@ function Main() {
 
   function getBookData(a){
     setReservations([...reservations,a])
-    console.log(reservations)
-    console.log(a)
     setAvailableTimes(availableTimes.filter(el => el!==a.time))
     navigate('/confirm')
   }
-
-  useEffect(
-    ()=>{
-      console.log(orders)
-    },[orders]
-  )
 
 
   return (
