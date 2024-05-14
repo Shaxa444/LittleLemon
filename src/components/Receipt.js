@@ -29,7 +29,7 @@ function Receipt({orders,setOrders}) {
             </div>
         </div>
         <div className="esc" onClick={()=> setVision(!vision)}>x</div>
-        <h2>Your Orders</h2>
+        <h2 className='slideButtonText'>Your Orders</h2>
         <div>
             {orders.map((element,index) =>
             <div className='boughtProducts' key={index}>
