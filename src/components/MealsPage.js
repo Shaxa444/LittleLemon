@@ -6,7 +6,7 @@ import Swal from 'sweetalert2'
 
 function MealsPage({orderHandler}) {
     const[visibility,setVisibility] = useState(true)
-    const[showMore,setShowMore] = useState(6)
+    const[showMore,setShowMore] = useState(3)
     const[sortType,setSortType] = useState("Alp-AZ")
     const[order,setOrder] = useState(null)
 
@@ -96,9 +96,9 @@ function MealsPage({orderHandler}) {
                 </form>
             })}
         </div>
-        {visibility && <button onClick={()=> {setShowMore(showMore+9)
-        setVisibility(showMore+9<MealList.length)}
-        }>Show More</button>}
+        {visibility && <button onClick={()=> {setShowMore(showMore+6)
+        setVisibility(showMore+6<MealList.length)}
+        } className='showMoreButton'>Show More</button>}
     </div>
   )
 }

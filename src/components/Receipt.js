@@ -18,6 +18,12 @@ function Receipt({orders,setOrders}) {
         },[orders]
     )
 
+    function handlerDelete(a){
+        setOrders(orders.map(order=> order.name===a.name? (order.amount>0 ? {...order,amount:order.amount-1}: {...order,amount:0}):{...order}))
+    }
+    function handlerAdd(a){
+        setOrders(orders.map(order=> order.name===a.name?{...order,amount:order.amount+1}:{...order}))
+    }
 
   return (
     <div className={`receipt ${vision&& 'moveLeft'}`}>
@@ -41,8 +47,8 @@ function Receipt({orders,setOrders}) {
                 <div className='editOrders'>
                     <span>(<h3>{element.amount}</h3> portion) (total: <h3>${Math.floor(element.amount*(element.price-0.01)*100)/100}</h3>)</span>
                     <div>
-                        <button><img src={addIcon} alt="add" className='addIcon'/></button>
-                        <button ><img src={deleteIcon} alt="delete" className='deleteIcon'/></button>
+                        <button onClick={()=> handlerAdd({name:element.name,amount:element.amount})}><img src={addIcon} alt="add" className='addIcon'/></button>
+                        <button onClick={()=> handlerDelete({name:element.name,amount:element.amount})}><img src={deleteIcon} alt="delete" className='deleteIcon'/></button>
                     </div>
                 </div>
                 <hr />

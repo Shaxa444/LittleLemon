@@ -49,8 +49,14 @@ button.returnButton img{
 }
 button:hover{
   scale: 105%;
-  filter: brightness(80%);
+  /* filter: brightness(80%); */
   transition: 0.1s;
+  background-color: white;
+  color: #495E57;
+}
+button.showMoreButton:hover{
+  background-color: #495E57;
+  color: white;
 }
 
 
@@ -61,6 +67,7 @@ nav{
   justify-content: space-between;
   text-align: center;
   align-items: center;
+  background-color: white;
 }
 
 
@@ -289,13 +296,13 @@ form.meal .line{
   background-color: #313f3b;
   height: 100vh;
   top: 0px;
-  z-index: 2;
   translate: 100%;
   transition: 0.5s;
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  z-index: 1000000000000;
 }
 .slideButton{
   width: 100px;
@@ -432,6 +439,106 @@ form.meal .line{
   z-index: 10;
 }
 
+/* -----------------------------------------------------ABOUT PAGE----------------------------------------------- */
+
+.DefaultPage{
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  height: 400px;
+}
+.DefaultPage>img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 100vw;
+  z-index: -1;
+}
+.DefaultPage h1{
+  position: absolute;
+  top:50%;
+  left:50%;
+  translate: -50% -50%;
+  padding: 20px 80px;
+  margin: 0px;
+  background-color: #495e57ae;
+  border-radius: 20px;
+  color: #F4CE14;
+  cursor: default;
+}
+.comments img{
+width: 100%;
+}
+.comments{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  text-align: center;
+  padding: 30px 10%;
+  column-gap: 40px;
+  row-gap: 30px;
+  background-color: #495E57;
+}
+.comments>li{
+  border-radius: 40px;
+  background-color: white;
+  overflow: hidden;
+  transition: 0.5s;
+}
+.comments>li>div:nth-of-type(2){
+  padding: 0% 5%;
+}
+.comments h4 , .comments p{
+  padding: 0px;
+  margin: 0px;
+}
+.comments p{
+  opacity: 0.5;
+  padding: 5px 0px;
+  padding-bottom: 15px;
+}
+.comments li:hover{
+  scale: 105%;
+  transition: 0.1s;
+}
+
+/* ----------------------------------------------------HOME PAGE 2--------------------------------------------- */
+.homepage2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
+}
+.homepage2 p{
+  color: #313f3b;
+}
+.homepage2 h2{
+  color: #F4CE14;
+}
+.homepage2 img{
+  width: 300px;
+  height: 400px;
+  position: absolute;
+  box-shadow: 0px 0px 20px 0px black;
+}
+.homepage2 div:nth-child(2){
+  width: 400px;
+  height: 500px;
+  z-index: 3;
+  position: relative;
+}
+.homepage2>div:nth-child(1){
+  width:350px;
+}
+.homepage2 img:nth-last-of-type(1){
+  left: 0px;
+  bottom: 0px;
+}
+.homepage2 img:nth-last-of-type(2){
+  right: 0px;
+  top: 0px;
+}
+
 @media (max-width: 980px) {
   .hamburgermenu{
     display: block;
@@ -545,5 +652,16 @@ form.meal .line{
   .receipt >h2.slideButtonText{
     position: relative;
     text-align: center;
+  }
+  /* ---------------------------------------------------------TESTIMONALS PAGE -------------------------------------------------- */
+
+  .comments{
+    grid-template-columns: 1fr;
+  }
+
+  /* ------------------------------------------------------- HOMEPAGE2 -----------------------------------------------*/
+
+  .homepage2{
+    flex-direction: column;
   }
 }

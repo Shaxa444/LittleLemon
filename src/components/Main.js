@@ -6,6 +6,9 @@ import Confirmation from './Confirmation'
 import { useNavigate } from 'react-router-dom'
 import MealsPage from './MealsPage'
 import Receipt from './Receipt'
+import DefaultPage from './DefaultPage'
+import TestimonalsPage from './TestimonalsPage'
+import HomePage2 from './HomePage2'
 
 function Main() {
   const [reservations, setReservations] = useState([])
@@ -43,8 +46,13 @@ function Main() {
         <Route path='/' element={<><Header /><MealsPage orderHandler={(a)=> a!== null && orderHandler(a)}/></>}/>
         <Route path='/booking' element={<Booking availableTimes={availableTimes} getBookData={getBookData} />}/>
         <Route path='/confirm' element={<Confirmation />} />
+        <Route path='/about' element={<DefaultPage name={"About"} />} />
+        <Route path='/menu' element={<><DefaultPage name={"Our Menu"} /><MealsPage /></>}/>
+        <Route path='/services' element={<><DefaultPage name={"Services"} /></>}/>
       </Routes>
-    </main>
+      <TestimonalsPage />
+      <HomePage2 />
+    </main> 
   )
 }
 
